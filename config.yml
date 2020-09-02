@@ -1,6 +1,6 @@
 title: create a Python script # a name for your Learning Lab course
 tagline: # a short description for your Learning Lab course, displayed on the course catalog
-description: Add a file titled "myscript" using file extension .py to the repository # a longer description for your Learning Lab course, displayed on the course's landing page
+description: Create your first Python script # a longer description for your Learning Lab course, displayed on the course's landing page
 
 # Repository setup
 # The following section template information for the repository
@@ -14,8 +14,8 @@ template:
 # Actions to take place after the learner registers, but before they start interacting with their repo
 
 before:
-- type: # the type of action, full list at https://lab.github.com/docs/actions/
-  # some actions require additional options, those should appear below `type:`
+- type: respond
+  with: 01_first-response.md
   # you can execute multiple actions in the `before` block
 
 # Steps for the course
@@ -24,37 +24,40 @@ before:
 
 steps:
 # Step 1: EDIT HERE - INTERNAL COMMENT DESCRIBING STEP 
-- title: Add author information # the title of the step, shown to the learner in the course progress page
-  description: Add author information to "myscript.py" # a description of the step, shown to the learner in the course progress page
-  event: # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
+- title: Create a Python file # the title of the step, shown to the learner in the course progress page
+  description: Add a file titled "myscript" using file extension .py to the repository # a description of the step, shown to the learner in the course progress page
+  event: pull_request.synchronize # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
   actions: # a list of the actions that will occur when the step is triggered by an event
-  - type: # the type of action, full list at https://lab.github.com/docs/actions
-
+- type: gate
+  left: '%payload.pull_request.title%'
+  operator: ===
+  right: "Creating the config file"
+  
 # Step 2: EDIT HERE -INTERNAL COMMENT FOR STEP 2
-# - title: # the title of the step, shown to the learner in the course progress page
-#  description: # a description of the step, shown to the learner in the course progress page
-#  event: # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
-#  actions: # a list of the actions that will occur when the step is triggered by an event
-#  - type: # the type of action, full list at https://lab.github.com/docs/actions
+- title: Make Python script executable # the title of the step, shown to the learner in the course progress page
+ description: Specify which Python the script should run by adding `#!/usr/bin/env python` to line 1 # a description of the step, shown to the learner in the course progress page
+ event: pull_request.synchronize # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
+ actions: # a list of the actions that will occur when the step is triggered by an event
+ - type: # the type of action, full list at https://lab.github.com/docs/actions
 
-# Step 3: EDIT HERE - INTERNAL COMMENT FOR STEP 3
-# - title: # the title of the step, shown to the learner in the course progress page
-#  description: # a description of the step, shown to the learner in the course progress page
-#  event: # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
-#  actions: # a list of the actions that will occur when the step is triggered by an event
-#  - type: # the type of action, full list at https://lab.github.com/docs/actions
+Step 3: EDIT HERE - INTERNAL COMMENT FOR STEP 3
+ - title: Add author information# the title of the step, shown to the learner in the course progress page
+ description: Modify myscript.py with author (`__author__`) information on line 3 # a description of the step, shown to the learner in the course progress page
+ event: pull_request.synchronize # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
+ actions: # a list of the actions that will occur when the step is triggered by an event
+ - type: # the type of action, full list at https://lab.github.com/docs/actions
 
-# Step 4: EDIT HERE - INTERNAL COMMENT FOR STEP 4
-# - title: # the title of the step, shown to the learner in the course progress page
-#  description: # a description of the step, shown to the learner in the course progress page
-#  event: # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
-#  actions: # a list of the actions that will occur when the step is triggered by an event
-#  - type: # the type of action, full list at https://lab.github.com/docs/actions
+Step 4: EDIT HERE - INTERNAL COMMENT FOR STEP 4
+- title: Write a Python function # the title of the step, shown to the learner in the course progress page
+ description: Add a Python function called "hello_world" that prints the string "Hello World" on line 5, then call the function # a description of the step, shown to the learner in the course progress page
+ event: pull_request.synchronize # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
+ actions: # a list of the actions that will occur when the step is triggered by an event
+ - type: # the type of action, full list at https://lab.github.com/docs/actions
 
-# Step 5: EDIT HERE - INTERNAL COMMENT FOR STEP 5
-# - title: # the title of the step, shown to the learner in the course progress page
-#  description: # a description of the step, shown to the learner in the course progress page
-#  event: # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
-#  actions: # a list of the actions that will occur when the step is triggered by an event
-#  - type: # the type of action, full list at https://lab.github.com/docs/actions
+Step 5: EDIT HERE - INTERNAL COMMENT FOR STEP 5
+- title: # the title of the step, shown to the learner in the course progress page
+ description: # a description of the step, shown to the learner in the course progress page
+ event: pull_request.synchronize # the event that will trigger the actions to be executed, full list at https://developer.github.com/v3/activity/events/types/
+ actions: # a list of the actions that will occur when the step is triggered by an event
+ - type: # the type of action, full list at https://lab.github.com/docs/actions
 
